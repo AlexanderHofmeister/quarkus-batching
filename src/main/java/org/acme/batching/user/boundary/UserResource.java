@@ -25,7 +25,7 @@ public class UserResource {
     @Transactional
     public List<User> hello() {
         List<User> users = new ArrayList<>();
-        for (int i = 0; i < 6; i++) {
+        for (long i = 0; i < 6; i++) {
 
             if (i > 0 && i % 3 == 0) {
                 entityManager.flush();
@@ -33,6 +33,7 @@ public class UserResource {
             }
             User user = new User();
             user.name = "" + i;
+//            user.id = i;
             persistOrMerge(user);
             users.add(user);
         }
